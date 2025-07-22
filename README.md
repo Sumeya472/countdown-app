@@ -6,7 +6,7 @@ Features ✨
 
  Interactive Dashboard:
  
-  1.Create/delete countdowns with titles, dates, and categories
+   1.Create/delete countdowns with titles, dates, and categories
   
   2. Set reminders for upcoming events
   
