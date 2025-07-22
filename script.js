@@ -1,3 +1,4 @@
+//script.js       
         const themeBtn = document.getElementById('theme-btn');
         const helpBtn = document.getElementById('help-btn');
         const settingsBtn = document.getElementById('settings-btn');
