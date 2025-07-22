@@ -1,4 +1,4 @@
-  // DOM Elements
+
         const themeBtn = document.getElementById('theme-btn');
         const helpBtn = document.getElementById('help-btn');
         const settingsBtn = document.getElementById('settings-btn');
@@ -39,9 +39,9 @@
         const reminderNotificationText = document.getElementById('reminder-notification-text');
  
         let countdowns = [
-            { id: '1', title: "new year", date: "2025-01-01", category: "holiday" },
+            { id: '1', title: "new year eve", date: "2025-01-01", category: "holiday" },
             { id: '2', title: "Project Deadline", date: "2024-04-30", category: "work" },
-            { id: '3', title: "Final Exams", date: "2024-05-15", category: "education" }
+            
            
         ];
 
