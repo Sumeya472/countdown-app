@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Manager</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="a.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-hourglass-half"></i>
+                </div>
+                <div class="logo-text">Countdown Manager App</div>
+            </div>
+            <div class="header-actions">
+                <button class="header-btn" id="sound-toggle">
+                    <i class="fas fa-volume-up"></i> Sound On
+                </button>
+                <button class="header-btn" id="theme-btn">
+                    <i class="fas fa-palette"></i> Themes
+                </button>
+                <button class="header-btn" id="help-btn">
+                    <i class="fas fa-question-circle"></i> Help
+                </button>
+                <button class="header-btn" id="settings-btn">
+                    <i class="fas fa-cog"></i> Settings
+                </button>
+            </div>
+        </header>
+        
+        <div class="app-grid">
+            <div class="card active-countdown">
+                <h2 class="section-title"><i class="fas fa-star"></i> Active Countdown</h2>
+                <div class="active-title" id="active-title">first countdown</div>
+                
+                <div class="countdown-display" id="countdown-display">
+                    <div class="time-unit">
+                        <div class="time-value" id="days">364</div>
+                        <div class="time-label">Days</div>
+                    </div>
+                    <div class="time-unit">
+                        <div class="time-value" id="hours">23</div>
+                        <div class="time-label">Hours</div>
+                    </div>
+                    <div class="time-unit">
+                        <div class="time-value" id="minutes">59</div>
+                        <div class="time-label">Minutes</div>
+                    </div>
+                    <div class="time-unit">
+                        <div class="time-value" id="seconds">45</div>
+                        <div class="time-label">Seconds</div>
+                    </div>
+                </div>
+                
+                <div class="expired" id="expired-message">EXPIRED!</div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar" style="width: 5%"></div>
+                </div>
+                <div class="progress-text" id="progress-text">5% of time passed</div>
+            </div>
+            
+            <div class="card">
+                <h2 class="section-title"><i class="fas fa-plus-circle"></i> Add New Countdown</h2>
+                <form id="countdown-form">
+                    <div class="form-group">
+                        <label for="title"><i class="fas fa-heading"></i> Event Title</label>
+                        <input type="text" id="title" placeholder="What are you counting down to?" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date"><i class="fas fa-calendar-alt"></i> Event Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category"><i class="fas fa-tag"></i> Category</label>
+                        <select id="category">
+                            <option value="personal">Personal</option>
+                            <option value="work">Work</option>
+                            <option value="holiday">Holiday</option>
+                            <option value="education">Education</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit"><i class="fas fa-plus"></i> Add Countdown</button>
+                </form>
+            </div>
+            
+            <div class="card">
+                <h2 class="section-title"><i class="fas fa-list"></i> My Countdowns</h2>
+                <div class="countdown-list" id="countdown-list">
+                
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2 class="section-title"><i class="fas fa-chart-pie"></i> Statistics</h2>
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <div class="stat-value" id="total-count">0</div>
+                        <div class="stat-label">Total</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="active-count">0</div>
+                        <div class="stat-label">Active</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="completed-count">0</div>
+                        <div class="stat-label">Completed</div>
+                    </div>
+                </div>
+                
+                <h2 class="section-title" style="margin-top: 30px;"><i class="fas fa-bolt"></i> Quick Actions</h2>
+                <div style="margin-top: 20px;">
+                    <button class="header-btn" id="reminder-btn" style="width: 100%; margin-bottom: 15px;">
+                        <i class="fas fa-bell"></i> Set Reminder
+                    </button>
+                    <button class="header-btn" id="share-btn" style="width: 100%;">
+                        <i class="fas fa-share-alt"></i> Share Countdown
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="features-section">
+            <h2 class="features-title">Powerful Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3 class="feature-title">Smart Reminders</h3>
+                    <p class="feature-desc">
+                        Set custom reminders for your countdowns. Get notified at important intervals before your event.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Auto Sync</h3>
+                    <p class="feature-desc">
+                        Your countdowns are automatically saved and synced across all your devices. 
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Progress Analytics</h3>
+                    <p class="feature-desc">
+                        Track your countdown progress with detailed statistics and visualizations. 
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Countdown Manager App 2025 | Track your most important moments with our Ultimate Countdown Manager</p>
+        </footer>
+    </div>
+    
+
+    <div class="modal" id="theme-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fas fa-palette"></i> Choose Theme</h3>
+                <button class="close-btn" id="close-theme-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Select a theme to change the appearance of your countdown manager:</p>
+                <div class="theme-options">
+                    <div class="theme-option active" data-theme="default" style="background: linear-gradient(135deg, #1a2a6c, #2d0b59, #1a2a6c);">
+                        Default Theme
+                    </div>
+                    <div class="theme-option" data-theme="space" style="background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);">
+                        Space Theme
+                    </div>
+                    <div class="theme-option" data-theme="sunset" style="background: linear-gradient(135deg, #ff7e5f, #feb47b, #ff7e5f);">
+                        Sunset Theme
+                    </div>
+                    <div class="theme-option" data-theme="ocean" style="background: linear-gradient(135deg, #1d2b64, #1d2b64, #1d2b64, #f8cdda);">
+                        Ocean Theme
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="modal" id="help-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fas fa-question-circle"></i> Help Center</h3>
+                <button class="close-btn" id="close-help-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body help-content">
+                <h3><i class="fas fa-star"></i> Getting Started</h3>
+                <p>Welcome to My Countdown Manager! This app helps you track important events with beautiful countdown timers.</p>
+                
+                <h3><i class="fas fa-plus-circle"></i> Creating Countdowns</h3>
+                <ol>
+                    <li>Go to the "Add New Countdown" section</li>
+                    <li>Enter a title for your event</li>
+                    <li>Select the event date using the date picker</li>
+                    <li>Choose a category to organize your countdown</li>
+                    <li>Click "Add Countdown" to save it</li>
+                </ol>
+                
+                <h3><i class="fas fa-list"></i> Managing Countdowns</h3>
+                <ul>
+                    <li><strong>Set Active:</strong> Click any countdown to display it in the main view</li>
+                    <li><strong>Edit:</strong> Click the pencil icon to modify a countdown</li>
+                    <li><strong>Delete:</strong> Click the trash icon to remove a countdown</li>
+                    <li><strong>Newest First:</strong> New countdowns appear at the top of your list</li>
+                </ul>
+                
+                <h3><i class="fas fa-cog"></i> Advanced Features</h3>
+                <ul>
+                    <li><strong>Themes:</strong> Personalize the app with different color schemes</li>
+                    <li><strong>Sound Effects:</strong> Toggle sounds for notifications and actions</li>
+                    <li><strong>Progress Tracking:</strong> Visual indicator showing time progress</li>
+                    <li><strong>Statistics:</strong> Track your countdown activity with detailed stats</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="settings-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fas fa-cog"></i> Settings</h3>
+                <button class="close-btn" id="close-settings-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-item">
+                    <div class="setting-label">
+                        <i class="fas fa-volume-up"></i>
+                        <span>Enable Sound Effects</span>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="sound-toggle-switch" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-label">
+                        <i class="fas fa-bell"></i>
+                        <span>Notification Reminders</span>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="notifications-switch" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-label">
+                        <i class="fas fa-fire"></i>
+                        <span>Animations</span>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="animations-switch" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-label">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>Auto-refresh</span>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="refresh-switch" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="reminder-modal">
+        <div class="modal-content reminder-modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fas fa-bell"></i> Set Reminder</h3>
+                <button class="close-btn" id="close-reminder-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form class="reminder-form" id="reminder-form">
+                    <div class="form-group">
+                        <label for="reminder-title"><i class="fas fa-heading"></i> Reminder Title</label>
+                        <input type="text" id="reminder-title" placeholder="Enter reminder title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-clock"></i> Remind Me</label>
+                        <div class="reminder-options">
+                            <div class="reminder-option active" data-days="1">1 Day Before</div>
+                            <div class="reminder-option" data-days="3">3 Days Before</div>
+                            <div class="reminder-option" data-days="7">1 Week Before</div>
+                            <div class="reminder-option" data-days="30">1 Month Before</div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit"><i class="fas fa-bell"></i> Set Reminder</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="share-modal">
+        <div class="modal-content share-modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fas fa-share-alt"></i> Share Countdown</h3>
+                <button class="close-btn" id="close-share-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Share this countdown with your friends:</p>
+                <div class="share-options">
+                    <div class="share-option" data-platform="facebook">
+                        <i class="fab fa-facebook share-icon facebook"></i>
+                        <span>Facebook</span>
+                    </div>
+                    <div class="share-option" data-platform="whatsapp">
+                        <i class="fab fa-whatsapp share-icon whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </div>
+                    <div class="share-option" data-platform="instagram">
+                        <i class="fab fa-instagram share-icon instagram"></i>
+                        <span>Instagram</span>
+                    </div>
+                    <div class="share-option" data-platform="telegram">
+                        <i class="fab fa-telegram share-icon telegram"></i>
+                        <span>Telegram</span>
+                    </div>
+                    <div class="share-option" data-platform="email">
+                        <i class="fas fa-envelope share-icon email"></i>
+                        <span>Email</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="modal" id="delete-modal">
+        <div class="modal-content delete-modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fas fa-exclamation-triangle"></i> Delete Countdown</h3>
+                <button class="close-btn" id="close-delete-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this countdown? This action cannot be undone.</p>
+                <div class="delete-actions">
+                    <button class="cancel-btn" id="cancel-delete">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                    <button class="confirm-btn" id="confirm-delete">
+                        <i class="fas fa-trash"></i> Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="edit-modal">
+        <div class="modal-content edit-modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fas fa-edit"></i> Edit Countdown</h3>
+                <button class="close-btn" id="close-edit-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="edit-form">
+                    <div class="form-group">
+                        <label for="edit-title"><i class="fas fa-heading"></i> Event Title</label>
+                        <input type="text" id="edit-title" placeholder="Event title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-date"><i class="fas fa-calendar-alt"></i> Event Date</label>
+                        <input type="date" id="edit-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-category"><i class="fas fa-tag"></i> Category</label>
+                        <select id="edit-category">
+                            <option value="personal">Personal</option>
+                            <option value="work">Work</option>
+                            <option value="holiday">Holiday</option>
+                            <option value="education">Education</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit"><i class="fas fa-save"></i> Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="modal" id="reminder-notification">
+        <div class="modal-content" style="max-width: 500px;">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fas fa-bell"></i> Reminder Set</h3>
+                <button class="close-btn" id="close-reminder-notification"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p id="reminder-notification-text"></p>
+                <button class="header-btn" id="ok-reminder-btn" style="width: 100%; margin-top: 20px;">
+                    <i class="fas fa-check"></i> OK
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <audio id="notification-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+     <script src="t.js"></script>
+</body>
+</html>
