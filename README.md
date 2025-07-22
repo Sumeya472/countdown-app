@@ -6,20 +6,20 @@ Features ✨
 
  Interactive Dashboard:
  
-   1.Create/delete countdowns with titles, dates, and categories
+ 1.Create/delete countdowns with titles, dates, and categories
   
-  2. Set reminders for upcoming events
+ 2. Set reminders for upcoming events
   
-  3. Visual Elements**:
+3. Visual Elements**:
       - Category color-coding (Work, Personal, Holiday...)
       - Real-time countdown display
         
-  4. Sharing & Management:
+4. Sharing & Management:
       - Share countdowns via social media/email
       - Edit existing countdowns/reminders
       - Sound notifications toggle
 
- 5. Statistics:
+5. Statistics:
   - Total/active/completed countdown tracking
   - Expired event indicators
 
